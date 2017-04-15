@@ -21,19 +21,30 @@ Please see the file data_provider.py for details.
 Usage Example
 ------
 clf_pic_name = os.path.join(".", "tf_str_seq2seq_sm.sess") # this will be used to save the model   
+
 num_sequences = 15 * 1024
+
 batch_size = 16
+
 dgen = DataProvider(num_sequences, mlen, batch_size=batch_size )
 input_dims = 128
 hidden_size = 256 #128
 num_decoder_symbols = 128
 num_epochs = 10
 
-# create an instance of seq2seq with clf_pic_name, input_dims, hidden_size, num_decoder_symbols
+
+#create an instance of seq2seq with clf_pic_name, input_dims, hidden_size, num_decoder_symbols
+
 s2s = GRU_Seq2Seq(clf_pic_name, input_dims, hidden_size, num_decoder_symbols)
-# Train the model
+
+#Train the model
+
 s2s.train(dgen, num_epochs)
+
 # Do inferencing
+
 vgen = DataProvider(num_samples_for_validation, mlen, batch_size=bsize ) # vgen is the data provider for validation
+
 # e_results are results of the encoder and results are the results from decoder inferencing
+
 e_results, results = s2s.do_inference(batch, slen, vgen)
