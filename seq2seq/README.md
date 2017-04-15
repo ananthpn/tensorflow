@@ -41,10 +41,10 @@ s2s = GRU_Seq2Seq(clf_pic_name, input_dims, hidden_size, num_decoder_symbols)
 
 s2s.train(dgen, num_epochs)
 
-# Do inferencing
+#Do inferencing
 
 vgen = DataProvider(num_samples_for_validation, mlen, batch_size=bsize ) # vgen is the data provider for validation
 
-# e_results are results of the encoder and results are the results from decoder inferencing
+#e_results are results of the encoder and results are the results from decoder inferencing
 
 e_results, results = s2s.do_inference(batch, slen, vgen)
