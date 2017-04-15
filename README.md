@@ -1,2 +1,2 @@
 # tensorflow
-My classifiers and applications that are TensorFlow based
+In this repository I will be checking in some of my work that use TensorFlow.
